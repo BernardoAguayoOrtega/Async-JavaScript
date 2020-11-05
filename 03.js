@@ -32,3 +32,13 @@ fetch('https://jsonplaceholder.typicode.com/posts/1', {
   },
   body: JSON.stringify(blogPost)
 })
+
+// handle errors
+fetch('https://jsonplaceholder.typicode.com/pots/1')
+  .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);  
+      }
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error(error))
