@@ -42,3 +42,23 @@ fetch('https://jsonplaceholder.typicode.com/pots/1')
   })
   .then(data => console.log(data))
   .catch(error => console.error(error))
+
+  const url = "https://jsonplaceholder.typicode.com/users/3"
+
+const user = {
+    "data": {},
+    "setData": (data) => user["data"] = data
+}
+
+const getData = async () => {
+    await fetch("https://jsonplaceholder.typicode.com/users/3")
+        .then(response => response.json())
+        .then(data => user.setData(data))
+
+    const h1 = document.querySelector('h1')
+    
+    h1.innerText = user.data.name
+
+}
+
+getData()
